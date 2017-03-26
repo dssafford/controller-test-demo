@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Card Randomizer</title>
+
+    <!--<th:block th:include="fragments/headerinc :: head"></th:block>-->
+
+</head>
+
+<!--<th:block th:include="fragments/header :: header"></th:block>-->
+
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <ul>
+                <h2>Todo</h2>
+                <li class="links"><a href="/todo/add" class="links">Add ToDo</a>
+                </li>
+                <li class="links"><a href="/todo/list" class="links">Show ToDos</a>
+                </li>
+                <br/><br/>
+
+
+            </ul>
+        </div>
+        <div class="col-sm-4"><h2 th:class="formHeader">Testing Links</h2>
+            <ul>
+                <li class="links"><a href="/enterAnswers" class="links">Enter Answers</a></li>
+                <br/><br/>
+                <li class="links"><a href="/showLocationScoreHistory" class="links">Show Location Score History</a></li>
+                <li class="links"><a href="/showCardScoreHistory" class="links">Show Card Score History</a></li>
+                <br/><br/>
+                <li class="links"><a href="/answer" class="links">Test answers</a></li>
+
+            </ul>
+        </div>
+        <div class="col-sm-4"><h2 th:class="formHeader">User Links</h2>
+            <ul>
+                <li class="links"><a href="user/list" class="links">Users</a></li>
+                <li class="links"><a href="secured.html" class="links">Security Status</a></li>
+                <li class="links"><a href="/registration" class="links">Registration</a></li>
+                <br/><br/>
+                <li class="links"><a href="/logout" class="links">Logout</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

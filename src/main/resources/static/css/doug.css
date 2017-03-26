@@ -1,0 +1,145 @@
+body {
+	/*background: url('../images/verylightbluebackground.jpeg') no-repeat center center fixed;*/
+
+	background-color: #c2dade !important;
+	background-size: cover;
+	//font-family: arial,helvetica,sans-serif;
+}
+.navbar-inverse {
+	background-color: #0a7f8c !important;
+}
+
+.navbar-inverse.navbar-nav>li>a {
+	color: #ff5722;
+}
+.shit {
+	color: whitesmoke;
+}
+@media (min-width: 768px) {
+	.navbar-text {
+		/*margin-left:-3px;*/
+		/*margin-right:-3px;*/
+		 margin-right: 5px !important;
+		 margin-left: 0 !important;
+	}
+}
+.jumbotron {
+	text-align: center;
+	vertical-align: bottom !important;
+	height: 10px !important;
+	color: whitesmoke !important;
+
+	background: transparent !important;
+}
+
+div
+.panel-default {
+	background-color: whitesmoke!important;
+}
+
+title {
+	color: orangered;
+}
+.panel-dude {
+	text-align: center !important;
+	vertical-align: bottom !important;
+	height: 20px !important;
+	color: whitesmoke !important;
+
+	background: transparent !important;
+}
+
+.help-block {
+	color: cyan !important;
+}
+
+input.form-control {
+	width: 90% !important;
+}
+
+.form-group .has-error .control-label {
+	color: cyan;
+}
+
+.form-group .control-label {
+	vertical-align: bottom;
+	-webkit-text-size-adjust: 100px;
+	color: whitesmoke;
+}
+
+div.col-sm-6.right{
+	padding-right: 0% !important;
+}
+
+div.col-sm-6.left {
+	padding-left: 0% !important;
+}
+h1 {
+	color: #dd5555 !important;
+}
+h2 {
+	color: #dfa41b !important;
+}
+.dougOne {
+	color: #31b0d5;
+}
+.row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.createAccount {
+
+	color: cyan;
+
+}
+
+*::before, *::after {
+	box-sizing: border-box;
+}
+
+*::before, *::after {
+	box-sizing: border-box;
+}
+
+.generalLink {
+	color: darkblue;
+}
+
+img {
+	vertical-align: middle;
+}
+
+img {
+	border: 0 none;
+}
+
+.formHeader {
+	/*background: orange ;*/
+	color: orange;
+
+}
+.doug {
+	font-size: 32pt;
+	font-weight: bold;
+}
+
+label {
+	font-weight: bold;
+	color: orange;
+}
+
+.form-control {
+	width:40% !important;
+	height: 10%;
+	font-size: 14px !important;
+	color: #1b6d85 !important;
+}
+
+
+.form-control-static {
+
+	/*color:orange;*/
+	color: whitesmoke;
+
+}

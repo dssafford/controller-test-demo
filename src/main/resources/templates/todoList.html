@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Login</title>
+    <!--<th:block th:include="fragments/headerinc :: head"></th:block>-->
+</head>
+<body>
+<!--<th:block th:include="fragments/header :: header"></th:block>-->
+<!--<tr th:each="user : ${users}">-->
+    <!--<td th:text="${user.id}"><a href="/users/${user.id}">Id</a></td>-->
+    <!--<td th:text="${user.username}">User Name</td>-->
+    <!--<td th:text="${user.encryptedPassword}">Password</td>-->
+    <!--<td><a th:href="${ '/user/' + user.id}">View</a></td>-->
+    <!--<td><a th:href="${'/user/edit/' + user.id}">Edit</a></td>-->
+    <!--<td><a th:href="${'/user/delete/' + user.id}">Delete</a></td>-->
+<!--</tr>-->
+
+<div class="container">
+    <a href="/" class="">Return</a>
+    <div th:align="center" >
+        <table th:border="1px">
+            <!--<th style="text-align:center" >Number</th>-->
+            <th  style="text-align:center" >ID</th>
+            <th  style="text-align:center" >title</th>
+            <th  style="text-align:center" >description</th>
+            <tr th:each="todo : ${todos}">
+                <td> <a th:href="${'/todo/show/' + todo.id}">View</a> </td>
+                <!--<td  th:align="center" th:text="${todo.id}">id</td>-->
+                <td  th:align="center" th:text="${todo.title}">index</td>
+                <td  th:align="center" th:text="${todo.description}">index</td>
+                <td><a th:href="${ '/todo/show/' + todo.id}">View</a></td>
+                <td><a th:href="${'/todo/show/' + todo.id}">Edit</a></td>
+                <td><a th:href="${'/todo/delete/' + todo.id}">Delete</a></td>
+
+            </tr>
+
+        </table>
+    </div>
+</div>
+<!--<div class="dougOne" th:type="hidden">Hey You</div>-->
+</body>
+</html>
