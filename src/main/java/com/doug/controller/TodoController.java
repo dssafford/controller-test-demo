@@ -3,7 +3,10 @@ package com.doug.controller;
 import com.doug.exception.TodoNotFoundException;
 import com.doug.model.Todo;
 import com.doug.repository.TodoRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,36 +25,72 @@ import java.util.List;
 @Controller
 public class TodoController {
 
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(TodoController.class);
+
+	protected static final String FEEDBACK_MESSAGE_KEY_TODO_ADDED = "feedback.message.todo.added";
+	protected static final String FEEDBACK_MESSAGE_KEY_TODO_UPDATED = "feedback.message.todo.updated";
+	protected static final String FEEDBACK_MESSAGE_KEY_TODO_DELETED = "feedback.message.todo.deleted";
+
+	protected static final String FLASH_MESSAGE_KEY_ERROR = "errorMessage";
+	protected static final String FLASH_MESSAGE_KEY_FEEDBACK = "feedbackMessage";
+
+	protected static final String MODEL_ATTRIBUTE_TODO = "todo";
+	protected static final String MODEL_ATTRIBUTE_TODO_LIST = "todos";
+
+	protected static final String PARAMETER_TODO_ID = "id";
+
+	protected static final String REQUEST_MAPPING_TODO_LIST = "/";
+//	protected static final String REQUEST_MAPPING_TODO_VIEW = "/todo/{id}";
+	protected static final String REQUEST_MAPPING_TODO_VIEW = "index";
+	protected static final String PATH_TODO_ADD = "/todo/add";
+	protected static final String VIEW_TODO_ADD = "newaddtodo";
+
+	protected static final String VIEW_TODO_LIST = "todo/list";
+	protected static final String VIEW_TODO_UPDATE = "todo/update";
+	protected static final String VIEW_TODO_VIEW = "todo/view";
+	private static final String FEEDBACK_MESSAGE = "feedbackMessage";
+	private static final String FIELD_DESCRIPTION = "description";
+	private static final String FIELD_TITLE = "title";
+
 	@Autowired
 	private TodoRepository service;
+
+	@Autowired
+	private MessageSource messageSource;
+
+//	@Autowired
+//	private Validator validator;
 
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String getIndex() {
 
 		return "index";
 	}
-@RequestMapping(value = "/todo/add", method = RequestMethod.GET)
+@RequestMapping(value = "VIEW_TODO_ADD", method = RequestMethod.GET)
 public String showAddTodoForm(Model model) {
 
 	model.addAttribute("todo", new Todo());
 
-	return "newaddTodo";
+	return "newaddtodo";
 }
+	public String doException() throws TodoNotFoundException {
+		return "shit";
+	}
 
-	@RequestMapping(value = "/todo/add", method = RequestMethod.POST)
+	@RequestMapping(value = "VIEW_TODO_ADD", method = RequestMethod.POST)
 	public String addSubmit(@ModelAttribute Todo todo) {
 
 		service.save(todo);
-		String hey = "hey";
 
 		return "index";
 	}
 
 	@RequestMapping(value = "/todo/delete/{id}", method = RequestMethod.GET)
-	public String deleteById(@PathVariable("id") Long id, RedirectAttributes attributes) throws TodoNotFoundException {
+	public String deleteById(@PathVariable("id") Long id) throws TodoNotFoundException {
 
-
-		service.delete(id);
+		Todo todo = service.findOne(id);
+		service.delete(todo);
 
 
 		return "index";

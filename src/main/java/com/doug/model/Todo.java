@@ -1,5 +1,7 @@
 package com.doug.model;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,11 +13,17 @@ import javax.persistence.Id;
 
 @Entity
 public class Todo {
+	public static final int MAX_LENGTH_DESCRIPTION = 500;
+	public static final int MAX_LENGTH_TITLE = 100;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@Length(max = Todo.MAX_LENGTH_DESCRIPTION)
 	private String description;
+
+	@Length(max = Todo.MAX_LENGTH_TITLE)
 	private String title;
 
 	public Long getId() {
